@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+from vote import views
 
 urlpatterns = [
+    path('', views.index, name='index'),
+    path('index', views.index, name='index'),
+    path('JustVote/', include('vote.urls')),
     path('admin/', admin.site.urls),
 ]
